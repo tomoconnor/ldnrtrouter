@@ -8,3 +8,14 @@
 # 3) Figure out Geckoboard API
 # 4) Set up a local to remote proxy (aws)
 # 5) Pull via proxy to Gkboard.
+
+
+iso.3.6.1.2.1.2.2.1.2.1 = STRING: "FastEthernet0/0"
+iso.3.6.1.2.1.2.2.1.2.2 = STRING: "FastEthernet0/1"
+
+iso.3.6.1.2.1.2.2.1.10.1 = Counter32: 1421621608 IF-MIB::ifInOctets.1
+iso.3.6.1.2.1.2.2.1.10.2 = Counter32: 74309354 IF-MIB::ifInOctets.2
+
+iso.3.6.1.2.1.2.2.1.16.1 = Counter32: 72730095  IF-MIB::ifOutOctets.1
+iso.3.6.1.2.1.2.2.1.16.2 = Counter32: 1415515939 IF-MIB::ifOutOctets.2
+
