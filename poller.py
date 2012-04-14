@@ -53,7 +53,7 @@ if __name__ == "__main__":
 #	print eth1name, eth1InDelta
 #	print eth1name, eth1OutDelta
 
-	eth0In_jsonblob = """
+	gk_eth0In_jsonblob = """
 { "item" : "%s",
   "max" : { "text" : "Max value",
       "value" : "%s"
@@ -64,7 +64,7 @@ if __name__ == "__main__":
 }
 	""" % (eth0InDelta,MAX)
 
-	eth0Out_jsonblob = """
+	gk_eth0Out_jsonblob = """
 { "item" : "%s",
   "max" : { "text" : "Max value",
       "value" : "%s"
@@ -75,11 +75,37 @@ if __name__ == "__main__":
 }
 	""" %(eth0OutDelta,MAX)
 
-	open("tmp/eth0Out.json",'w').write(eth0Out_jsonblob)
-	open("tmp/eth0In.json",'w').write(eth0In_jsonblob)
-	
+	st_eth0In_jsonblob = """
 
-	sp.check_output("scp -q -i uploadkey tmp/eth0Out.json ldnrt@ec2-23-20-146-112.compute-1.amazonaws.com:/var/www/", shell=True, stderr=sp.STDOUT)
-	sp.check_output("scp -q -i uploadkey tmp/eth0In.json ldnrt@ec2-23-20-146-112.compute-1.amazonaws.com:/var/www/", shell=True, stderr=sp.STDOUT)
+{ "item" : [ { "text" : "",
+        "value" : %s
+      },
+      { "text" : "",
+        "value" : %s
+      }
+    ] }
+	""" %(eth0In,eth0In_)
+	st_eth0Out_jsonblob = """
+
+{ "item" : [ { "text" : "",
+        "value" : %s 
+      },
+      { "text" : "",
+        "value" : %s
+      }
+    ] }
+	""" %(eth0Out,eth0Out_)
+
+	
+	open("tmp/gk_eth0Out.json",'w').write(gk_eth0Out_jsonblob)
+	open("tmp/gk_eth0In.json",'w').write(gk_eth0In_jsonblob)
+	sp.check_output("scp -q -i uploadkey tmp/gk_eth0Out.json ldnrt@ec2-23-20-146-112.compute-1.amazonaws.com:/var/www/", shell=True, stderr=sp.STDOUT)
+	sp.check_output("scp -q -i uploadkey tmp/gk_eth0In.json ldnrt@ec2-23-20-146-112.compute-1.amazonaws.com:/var/www/", shell=True, stderr=sp.STDOUT)
+
+	open("tmp/st_eth0Out.json",'w').write(st_eth0Out_jsonblob)
+	open("tmp/st_eth0In.json",'w').write(st_eth0In_jsonblob)
+	sp.check_output("scp -q -i uploadkey tmp/st_eth0Out.json ldnrt@ec2-23-20-146-112.compute-1.amazonaws.com:/var/www/", shell=True, stderr=sp.STDOUT)
+	sp.check_output("scp -q -i uploadkey tmp/st_eth0In.json ldnrt@ec2-23-20-146-112.compute-1.amazonaws.com:/var/www/", shell=True, stderr=sp.STDOUT)
+
 
 
