@@ -1,7 +1,7 @@
 
-{ "item" : "162937",
+{ "item" : "21102081",
   "max" : { "text" : "Max value",
-      "value" : "104857600"
+      "value" : "26214400"
     },
   "min" : { "text" : "Min value",
       "value" : "0"

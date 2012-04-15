@@ -13,6 +13,8 @@ R="192.168.6.1"
 MIN=0
 MAX=1024000
 MAX=104857600
+MAX=104857600
+MAX=26214400
 def getSNMPString(community,oid,host):
 	cmd = "/usr/bin/snmpget -v2c -c%s %s %s" %( community,host,oid)	
 	output = sp.check_output(cmd,shell=True)
@@ -99,13 +101,13 @@ if __name__ == "__main__":
 	
 	open("tmp/gk_eth0Out.json",'w').write(gk_eth0Out_jsonblob)
 	open("tmp/gk_eth0In.json",'w').write(gk_eth0In_jsonblob)
-	sp.check_output("scp -q -i uploadkey tmp/gk_eth0Out.json ldnrt@ec2-23-20-146-112.compute-1.amazonaws.com:/var/www/", shell=True, stderr=sp.STDOUT)
-	sp.check_output("scp -q -i uploadkey tmp/gk_eth0In.json ldnrt@ec2-23-20-146-112.compute-1.amazonaws.com:/var/www/", shell=True, stderr=sp.STDOUT)
+	sp.check_output("scp -q -i uploadkey tmp/gk_eth0Out.json ldnrt@webcam.wibblesplat.com:/var/www/", shell=True, stderr=sp.STDOUT)
+	sp.check_output("scp -q -i uploadkey tmp/gk_eth0In.json ldnrt@webcam.wibblesplat.com:/var/www/", shell=True, stderr=sp.STDOUT)
 
 	open("tmp/st_eth0Out.json",'w').write(st_eth0Out_jsonblob)
 	open("tmp/st_eth0In.json",'w').write(st_eth0In_jsonblob)
-	sp.check_output("scp -q -i uploadkey tmp/st_eth0Out.json ldnrt@ec2-23-20-146-112.compute-1.amazonaws.com:/var/www/", shell=True, stderr=sp.STDOUT)
-	sp.check_output("scp -q -i uploadkey tmp/st_eth0In.json ldnrt@ec2-23-20-146-112.compute-1.amazonaws.com:/var/www/", shell=True, stderr=sp.STDOUT)
+	sp.check_output("scp -q -i uploadkey tmp/st_eth0Out.json ldnrt@webcam.wibblesplat.com:/var/www/", shell=True, stderr=sp.STDOUT)
+	sp.check_output("scp -q -i uploadkey tmp/st_eth0In.json ldnrt@webcam.wibblesplat.com:/var/www/", shell=True, stderr=sp.STDOUT)
 
 
 
