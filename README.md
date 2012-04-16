@@ -1,7 +1,8 @@
 # #LDNRealtime Live Router Stats
 
 ## Operation:
-1. Configure your router (I used a Cisco 2621XM) to expose SNMP data on your local subnet. (You can expose it a lot easier potentially, if you have a public IP)2. edit the "R" value in poller.py and linepoller.py, to set the Router's IP address/
+
+1. Configure your router (I used a Cisco 2621XM) to expose SNMP data on your local subnet. (You can expose it a lot easier potentially, if you have a public IP)2. Edit the "R" value in poller.py and linepoller.py, to set the Router's IP address/
 3. Install Redis.
 4. Install SNMP Tools (snmpget)
 5. Create an Amazon EC2 micro instance. 
@@ -14,7 +15,9 @@
 1. snmpget grabs the counters for fa0/0 and fa0/1. 
 2. Simple code calculates a delta.
 3. Insanely simple code creates a blob of JSON
-4. This is saved to a file in tmp/
+4. This is saved to a file in `tmp/`
 5. subprocess shells out to scp, using a public key authentication, and uploads it to the EC2 instance (or wherever you want).
 6. Apache running on the EC2 instance (with AddType application/json .json) presents it to the GeckoBoard.
 
+## Example Output
+https://ldnrealtimetrouter.geckoboard.com/dashboard/2A2BCD35F43DE96C/
