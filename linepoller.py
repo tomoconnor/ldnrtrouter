@@ -10,7 +10,7 @@ from time import time
 STRING = re.compile(r'STRING:\s+(.+)$')
 COUNTER32 = re.compile(r'Counter32:\s(.+)$')
 DB = redis.StrictRedis(host='localhost',port=6379, db=0)
-C="astound"
+C="public"
 R="192.168.6.1"
 MIN=0
 #MAX=1024000
