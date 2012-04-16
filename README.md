@@ -2,7 +2,8 @@
 
 ## Operation:
 
-1. Configure your router (I used a Cisco 2621XM) to expose SNMP data on your local subnet. (You can expose it a lot easier potentially, if you have a public IP)2. Edit the "R" value in poller.py and linepoller.py, to set the Router's IP address/
+1. Configure your router (I used a Cisco 2621XM) to expose SNMP data on your local subnet. (You can expose it a lot easier potentially, if you have a public IP)
+2. Edit the "R" value in poller.py and linepoller.py, to set the Router's IP address/
 3. Install Redis.
 4. Install SNMP Tools (snmpget)
 5. Create an Amazon EC2 micro instance. 
