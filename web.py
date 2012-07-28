@@ -25,6 +25,9 @@ for key in sorted(allOut.iterkeys()):
 
 use_values['dataseries1'] = ds1
 use_values['dataseries2'] = ds2
+use_values['dataseries1_name'] = 'Speed In'
+use_values['dataseries2_name'] = 'Speed Out'
+
 
 
 env = Environment(loader=FileSystemLoader('webroot/templates'))
