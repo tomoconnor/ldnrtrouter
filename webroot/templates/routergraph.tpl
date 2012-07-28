@@ -117,6 +117,18 @@
 
 
 <script>
+function parseSize(size) {
+    var suffix = ["bits/s", "Kb/s", "Mb/s", "Gb/s", "Tb/s", "Pb/s"],
+        tier = 0;
+
+    while(size >= 1024) {
+        size = size / 1024;
+        tier++;
+    }
+
+    return Math.round(size * 10) / 10 + " " + suffix[tier];
+}
+
 var palette = new Rickshaw.Color.Palette( { scheme: 'munin' } );
 var graph = new Rickshaw.Graph({
 	element: document.querySelector("#chart"),
@@ -146,7 +158,7 @@ var hoverDetail = new Rickshaw.Graph.HoverDetail( {
     formatter: function(series, x,y) {
 	var date = '<span class="date">' + new Date(x * 1000).toUTCString() + '</span>';
 	var swatch = '<span class="detail_swatch" style="background-color: ' + series.color + '"></span>';
-	var content = swatch + series.name + ": " + parseInt(y) + '<br>' + date;
+	var content = swatch + series.name + ": " + parseSize(parseInt(y)) + '<br>' + date;
 	return content;
 	}
    // xFormatter: function(x) { return x + "seconds" },

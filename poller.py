@@ -6,7 +6,7 @@ import re
 import redis
 from time import sleep
 from time import time
-from utils import binary_prefix
+from utils import binary_prefix,bitrate
 
 
 STRING = re.compile(r'STRING:\s+(.+)$')
@@ -51,7 +51,9 @@ if __name__ == "__main__":
 	eth0InDelta = eth0In_p - eth0In
 	eth0OutDelta = eth0Out_p - eth0Out
 	DB.hset('speedIn',ts,eth0InDelta)
+	DB.set('speedInLatest',bitrate(binary_prefix(eth0InDelta)))
 	DB.hset('speedOut',ts,eth0OutDelta)
+	DB.set('speedOutLatest',bitrate(binary_prefix(eth0OutDelta)))
 	print binary_prefix(eth0InDelta)
 	print binary_prefix(eth0OutDelta)
 

@@ -13,3 +13,7 @@ def binary_prefix(value, binary=False):
         value/= unit
     return (value, i<0 and '' or (binary and SI[i].upper() + 'i' or SI[i]))
 
+
+def bitrate(prefixtuple):
+	return "%s %sbit/s"%(prefixtuple[0],prefixtuple[1])
+
